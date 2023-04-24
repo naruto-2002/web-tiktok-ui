@@ -1,5 +1,5 @@
 import { Home, Following, Profile, Upload, Search } from '../pages';
-import { HeaderOnly } from '~/components/Layout';
+import { HeaderOnly } from '~/components/Layouts';
 
 const publicRoutes = [
     { path: '/', component: Home },
