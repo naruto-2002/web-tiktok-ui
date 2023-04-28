@@ -1,0 +1,94 @@
+.wrapper {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+
+    & + .wrapper {
+        margin-left: 8px;
+    }
+}
+
+.title + .icon,
+.icon + .title {
+    margin-left: 8px;
+}
+
+// Btn style
+.rounded {
+    color: rgba(22, 24, 35, 0.75);
+    font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    border-radius: 999px !important;
+}
+
+.primary {
+    color: var(--white);
+    background-color: var(--primary);
+    box-shadow: 0 2px 8px transparent;
+    border: 1px solid currentColor;
+
+    &:hover {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
+    }
+}
+
+.outline {
+    color: var(--primary);
+    border: 1px solid currentColor;
+    box-shadow: 0 2px 8px transparent;
+    border: 1px solid currentColor;
+
+    &:hover {
+        background-color: rgba(254, 44, 85, 0.06);
+    }
+}
+
+.text {
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    box-shadow: 0 2px 8px transparent;
+    border-radius: 2px;
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+//Btn size
+.small {
+    min-width: 88px;
+    min-height: 28px;
+    padding: 0 10px;
+    font-weight: 600;
+    font-family: ProximaNova, PingFangSC, sans-serif;
+}
+
+.medium {
+    min-width: 100px;
+    min-height: 36px;
+    padding: 6px 8px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 22px;
+    font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+}
+
+.large {
+    min-width: 168px;
+    min-height: 48px;
+    font-size: 1.8rem;
+    line-height: 25px;
+    font-weight: 600;
+    font-family: SofiaPro, PingFangSC, sans-serif;
+}

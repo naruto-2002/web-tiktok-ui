@@ -3,9 +3,19 @@
 
 :root {
     --primary: #fe2c55;
+    --text-color: #333;
+    --black: black;
+    --white: white;
+    --search-color: rgba(22, 24, 35, 0.06);
+    --search-btn-color: rgba(22, 24, 35, 0.75);
+    --search-border-color: rgba(22, 24, 35, 0.12);
+
     --default-layout-header-height: 60px;
     --default-layout-width: 1150px;
     --default-layout-sidebar-width: 356px;
+    --search-border-radius: 92px;
+    --search-width: 383px;
+    --search-height: 46px;
 }
 
 * {
@@ -23,4 +33,30 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+    color: var(--text-color);
+}
+
+input,
+button,
+[tabindex] {
+    outline: none;
+    border: none;
+}
+
+[href] {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+*[role='button']:focus,
+*[role='link']:focus,
+*[role='switch']:focus,
+*[tabindex]:focus,
+button[aria-label]:focus,
+button[aria-labelledby]:focus,
+button[aria-pressed]:focus,
+button[aria-expanded]:focus,
+button[role='tab']:focus,
+a[aria-label]:focus {
+    outline: none;
 }
