@@ -1,5 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass, faPlus, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import {
+    faCircleQuestion,
+    faEllipsisVertical,
+    faKeyboard,
+    faLanguage,
+    faMagnifyingGlass,
+    faMoon,
+    faPlus,
+} from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useRef, useState } from 'react';
 import Tippy from '@tippyjs/react/headless';
 
@@ -7,11 +15,45 @@ import styles from './Hedaer.module.scss';
 import classNames from 'classnames/bind';
 import images from '~/assets/images';
 import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
-import { Wrapper as PopingWrapper } from '~/components/Popping';
+import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccoutItem';
 import Button from '~/components/Button';
+import Menu from '~/components/Popper/Menu';
 
 const cx = classNames.bind(styles);
+
+const MENU_ITEMS = [
+    {
+        title: 'English',
+        icon: <FontAwesomeIcon icon={faLanguage} />,
+        children: {
+            title: 'Languge',
+            data: [
+                {
+                    code: 'eng',
+                    title: 'English',
+                },
+                {
+                    code: 'vie',
+                    title: 'Tiếng Việt',
+                },
+            ],
+        },
+    },
+    {
+        title: 'Feedbalck and help',
+        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        to: '/feedbalck',
+    },
+    {
+        title: 'Keyboard shortcuts',
+        icon: <FontAwesomeIcon icon={faKeyboard} />,
+    },
+    {
+        title: 'Dark mode',
+        icon: <FontAwesomeIcon icon={faMoon} />,
+    },
+];
 
 function Header() {
     const [visible, setVisible] = useState([]);
@@ -37,6 +79,10 @@ function Header() {
         e.stopPropagation();
     };
 
+    const handleMenuChange = (menuItem) => {
+        console.log(menuItem);
+    };
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -46,13 +92,13 @@ function Header() {
                     visible={visible.length > 0}
                     render={(attrs) => (
                         <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                            <PopingWrapper>
+                            <PopperWrapper>
                                 <h4 className={cx('search-title')}>Account</h4>
                                 <AccountItem />
                                 <AccountItem />
                                 <AccountItem />
                                 <AccountItem />
-                            </PopingWrapper>
+                            </PopperWrapper>
                         </div>
                     )}
                 >
@@ -71,12 +117,17 @@ function Header() {
                     </div>
                 </Tippy>
                 <div className={cx('action')}>
-                    <Button text medium leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+                    <Button text medium leftIcon={<FontAwesomeIcon icon={faPlus} />} className={cx('upload')}>
                         Upload
                     </Button>
                     <Button primary medium>
                         Log in
                     </Button>
+                    <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
+                        <button className={cx('more-btn')}>
+                            <FontAwesomeIcon className={cx('more-btn-icon')} icon={faEllipsisVertical} />
+                        </button>
+                    </Menu>
                 </div>
             </div>
         </div>

@@ -1,7 +1,13 @@
 .wrapper {
     width: var(--default-layout-sidebar-width);
-    min-height: 1000px;
+    padding-right: 8px;
 }
 
 .side-bar {
+    padding: 20px 0 26px 8px;
+    min-height: 1000px;
+}
+
+.page-item {
+    padding: 8px;
 }

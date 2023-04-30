@@ -2,19 +2,23 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid transparent;
     border-radius: 4px;
     cursor: pointer;
     user-select: none;
 
     & + .wrapper {
-        margin-left: 8px;
+        margin-left: 16px;
     }
 }
 
 .title + .icon,
 .icon + .title {
     margin-left: 8px;
+}
+
+.icon {
+    width: 24px;
+    text-align: center;
 }
 
 // Btn style
@@ -53,6 +57,7 @@
 
 .text {
     border: 1px solid rgba(22, 24, 35, 0.12);
+    background-color: var(--white);
     box-shadow: 0 2px 8px transparent;
     border-radius: 2px;
     &:hover {
@@ -70,6 +75,7 @@
     min-width: 88px;
     min-height: 28px;
     padding: 0 10px;
+    font-size: 1.6rem;
     font-weight: 600;
     font-family: ProximaNova, PingFangSC, sans-serif;
 }

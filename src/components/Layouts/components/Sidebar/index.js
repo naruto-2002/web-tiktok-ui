@@ -6,7 +6,11 @@ const cx = classNames.bind(styles);
 function Sidebar() {
     return (
         <div className={cx('wrapper')}>
-            <h1 className={cx('side-bar')}>Sidebar</h1>
+            <div className={cx('side-bar')}>
+                <ul className={cx('page-list')}>
+                    <li className={cx('page-item')}>Sidebar</li>
+                </ul>
+            </div>
         </div>
     );
 }

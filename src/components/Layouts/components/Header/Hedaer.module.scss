@@ -1,13 +1,14 @@
 .wrapper {
     width: 100%;
     height: var(--default-layout-header-height);
+    padding: 0 24px 0 16px;
     display: flex;
     justify-content: center;
     border: 1px solid #ccc;
 }
 
 .inner {
-    width: var(--default-layout-width);
+    width: var(--default-layout-header-width);
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -88,4 +89,26 @@
     &:active {
         background-color: rgba(22, 24, 35, 0.06);
     }
+}
+
+// Action
+.action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload {
+    min-width: 110px !important;
+}
+
+.more-btn {
+    margin-left: 16px;
+    padding: 0 4px;
+    background-color: var(--white);
+}
+
+.more-btn-icon {
+    width: 20px;
+    font-size: 2rem;
 }
