@@ -1,31 +1,34 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faCircleQuestion,
-    faEllipsisVertical,
-    faKeyboard,
-    faLanguage,
-    faMagnifyingGlass,
-    faMoon,
-    faPlus,
-} from '@fortawesome/free-solid-svg-icons';
-import { useEffect, useRef, useState } from 'react';
-import Tippy from '@tippyjs/react/headless';
+import { faEllipsisVertical, faPlus } from '@fortawesome/free-solid-svg-icons';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
 
 import styles from './Hedaer.module.scss';
 import classNames from 'classnames/bind';
 import images from '~/assets/images';
-import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
-import AccountItem from '~/components/AccoutItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
+import Image from '~/components/Image';
+import {
+    BoardIcon,
+    CoinIcon,
+    InboxIcon,
+    LanguageIcon,
+    MessageIcon,
+    MoonIcon,
+    QuestionIcon,
+    SettingIcon,
+    SingInIcon,
+    UserIcon,
+} from '~/components/Icons';
+import Search from '../Search';
 
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
     {
         title: 'English',
-        icon: <FontAwesomeIcon icon={faLanguage} />,
+        icon: <LanguageIcon />,
         children: {
             title: 'Languge',
             data: [
@@ -42,42 +45,50 @@ const MENU_ITEMS = [
     },
     {
         title: 'Feedbalck and help',
-        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        icon: <QuestionIcon />,
         to: '/feedbalck',
     },
     {
         title: 'Keyboard shortcuts',
-        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        icon: <BoardIcon />,
     },
     {
         title: 'Dark mode',
-        icon: <FontAwesomeIcon icon={faMoon} />,
+        icon: <MoonIcon />,
+    },
+];
+
+const userMenu = [
+    {
+        title: 'View profile',
+        icon: <UserIcon />,
+        to: '/lisa*@*^.^*@*',
+    },
+    {
+        title: 'Get Coins',
+        icon: <CoinIcon />,
+        to: '/coin',
+    },
+    {
+        title: 'Settings',
+        icon: <SettingIcon />,
+        to: '/setting',
+    },
+    ...MENU_ITEMS,
+    {
+        title: 'Log out',
+        icon: <SingInIcon />,
+        to: '/foryou',
+        separate: true,
     },
 ];
 
 function Header() {
-    const [visible, setVisible] = useState([]);
-
-    const search = useRef();
-    const searchBtn = useRef();
-
-    useEffect(() => {
-        setTimeout(() => {
-            setVisible([]);
-        }, 0);
-    }, []);
-
-    const handleFocusSearch = (e) => {
-        search.current.classList.add(cx('border'));
-    };
-
-    const handleBlurSearch = (e) => {
-        search.current.classList.remove(cx('border'));
-    };
-
-    const handleFocusSearchBtn = (e) => {
-        e.stopPropagation();
-    };
+    const currentUser = true;
+    let menu = MENU_ITEMS;
+    if (currentUser) {
+        menu = userMenu;
+    }
 
     const handleMenuChange = (menuItem) => {
         console.log(menuItem);
@@ -87,46 +98,49 @@ function Header() {
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <img src={images.logo.default} alt="Tiktok" />
-                <Tippy
-                    interactive
-                    visible={visible.length > 0}
-                    render={(attrs) => (
-                        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                            <PopperWrapper>
-                                <h4 className={cx('search-title')}>Account</h4>
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
-                            </PopperWrapper>
-                        </div>
-                    )}
-                >
-                    <div className={cx('search')} ref={search} onFocus={handleFocusSearch} onBlur={handleBlurSearch}>
-                        <input placeholder="Search" spellCheck={false} />
-
-                        <button className={cx('clear')}>
-                            <FontAwesomeIcon className={cx('clear-icon')} icon={faCircleXmark} />
-                        </button>
-
-                        {/* <FontAwesomeIcon className={cx('loading')} icon={faSpinner} /> */}
-
-                        <button className={cx('search-btn')} ref={searchBtn} onFocus={handleFocusSearchBtn}>
-                            <FontAwesomeIcon className={cx('search-btn-icon')} icon={faMagnifyingGlass} />
-                        </button>
-                    </div>
-                </Tippy>
+                <Search />
                 <div className={cx('action')}>
-                    <Button text medium leftIcon={<FontAwesomeIcon icon={faPlus} />} className={cx('upload')}>
-                        Upload
-                    </Button>
-                    <Button primary medium>
-                        Log in
-                    </Button>
-                    <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
-                        <button className={cx('more-btn')}>
-                            <FontAwesomeIcon className={cx('more-btn-icon')} icon={faEllipsisVertical} />
-                        </button>
+                    {currentUser ? (
+                        <>
+                            <Button text medium leftIcon={<FontAwesomeIcon icon={faPlus} />} className={cx('upload')}>
+                                Upload
+                            </Button>
+                            <Tippy content="Messages" placement="bottom">
+                                <button className={cx('action__btn-message')}>
+                                    <MessageIcon className={cx('icon-message')} />
+                                </button>
+                            </Tippy>
+                            <Tippy content="Inbox" placement="bottom">
+                                <button className={cx('action__btn-inbox')}>
+                                    {/* <img className={cx('icon-inbox')} src={images.inbox.default} alt="error" /> */}
+                                    <InboxIcon className={cx('icon-inbox')} />
+                                </button>
+                            </Tippy>
+                        </>
+                    ) : (
+                        <>
+                            <Button text medium leftIcon={<FontAwesomeIcon icon={faPlus} />} className={cx('upload')}>
+                                Upload
+                            </Button>
+                            <Button primary medium>
+                                Log in
+                            </Button>
+                        </>
+                    )}
+
+                    <Menu items={menu} onChange={handleMenuChange}>
+                        {currentUser ? (
+                            <Image
+                                className={cx('user-avatar')}
+                                src="https://printgo.vn/uploads/media/814080/anh-lisa-13_1668828972.jpg"
+                                alt="Lisa"
+                                fallback="https://static2.yan.vn/YanNews/2167221/202102/facebook-cap-nhat-avatar-doi-voi-tai-khoan-khong-su-dung-anh-dai-dien-e4abd14d.jpg"
+                            />
+                        ) : (
+                            <button className={cx('more-btn')}>
+                                <FontAwesomeIcon className={cx('more-btn-icon')} icon={faEllipsisVertical} />
+                            </button>
+                        )}
                     </Menu>
                 </div>
             </div>

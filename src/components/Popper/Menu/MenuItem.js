@@ -9,8 +9,12 @@ function MenuItem({ data, onClick }) {
         console.log();
     }
 
+    const classes = cx('menu-item', {
+        separate: data.separate,
+    });
+
     return (
-        <Button className={cx('menu-item')} leftIcon={data.icon} to={data.to} onClick={onClick} onChange={handleChange}>
+        <Button className={classes} leftIcon={data.icon} to={data.to} onClick={onClick} onChange={handleChange}>
             {data.title}
         </Button>
     );

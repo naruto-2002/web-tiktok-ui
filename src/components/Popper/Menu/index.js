@@ -1,4 +1,4 @@
-import Tippy from '@tippyjs/react/headless';
+import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 import { useState } from 'react';
 
@@ -16,11 +16,12 @@ function Menu({ children, items = [], onBack, onChange = fncDefault }) {
     const currentItem = history[history.length - 1];
 
     const renderItems = () => {
-        return currentItem.data.map((item) => {
+        return currentItem.data.map((item, index) => {
             const isParent = !!item.children;
 
             return (
                 <MenuItem
+                    key={index}
                     data={item}
                     onClick={() => {
                         if (isParent) {
@@ -37,8 +38,10 @@ function Menu({ children, items = [], onBack, onChange = fncDefault }) {
     };
 
     return (
-        <Tippy
+        <HeadlessTippy
             interactive
+            // visible
+            offset={[10, 10]}
             delay={[0, 700]}
             placement="bottom-end"
             render={(attrs) => (
@@ -49,7 +52,9 @@ function Menu({ children, items = [], onBack, onChange = fncDefault }) {
                                 title={'Language'}
                                 onBack={() => {
                                     if (history.length > 1) {
-                                        setHistory((prev) => prev.splice(0, prev.length - 1));
+                                        setHistory((prev) =>
+                                            prev.splice(0, prev.length - 1),
+                                        );
                                     }
                                 }}
                             />
@@ -58,9 +63,12 @@ function Menu({ children, items = [], onBack, onChange = fncDefault }) {
                     </PopperWrapper>
                 </div>
             )}
+            onHidden={() => {
+                setHistory((prev) => prev.splice(0, 1));
+            }}
         >
             {children}
-        </Tippy>
+        </HeadlessTippy>
     );
 }
 

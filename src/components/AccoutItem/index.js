@@ -3,25 +3,28 @@ import classNames from 'classnames/bind';
 import styles from './AccountItem.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import Image from '~/components/Image';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function AccountItem() {
+function AccountItem({ data }) {
     return (
-        <div className={cx('wrapper')}>
-            <img
+        <Link to={`/profile/${data.nickname}`} className={cx('wrapper')}>
+            <Image
                 className={cx('avatar')}
-                src="https://printgo.vn/uploads/media/814080/anh-lisa-13_1668828972.jpg"
+                src={data.avatar}
                 alt="error"
-            ></img>
+                fallback="https://static2.yan.vn/YanNews/2167221/202102/facebook-cap-nhat-avatar-doi-voi-tai-khoan-khong-su-dung-anh-dai-dien-e4abd14d.jpg"
+            ></Image>
             <div className={cx('info')}>
                 <div className={cx('name')}>
-                    <h4>lisa*@*^.^*@*</h4>
-                    <FontAwesomeIcon className={cx('check-icon')} icon={faCheckCircle} />
+                    <h4>{data.nickname}</h4>
+                    {data.tick && <FontAwesomeIcon className={cx('check-icon')} icon={faCheckCircle} />}
                 </div>
-                <span className={cx('username')}>Lisa</span>
+                <span className={cx('username')}>{data.full_name}</span>
             </div>
-        </div>
+        </Link>
     );
 }
 

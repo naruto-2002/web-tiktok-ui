@@ -3,6 +3,9 @@
     display: flex;
     align-items: center;
     line-height: 1.8rem;
+    &:hover {
+        background: rgba(22, 24, 35, 0.03);
+    }
 }
 
 .avatar {

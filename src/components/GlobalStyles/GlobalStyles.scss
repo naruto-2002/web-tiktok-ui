@@ -1,5 +1,4 @@
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 :root {
     --primary: #fe2c55;
@@ -7,7 +6,7 @@
     --black: black;
     --white: white;
     --search-color: rgba(22, 24, 35, 0.06);
-    --search-btn-color: rgba(22, 24, 35, 0.75);
+    --search-btn-color: rgba(22, 24, 35, 0.34);
     --search-border-color: rgba(22, 24, 35, 0.12);
 
     --default-layout-header-height: 60px;
@@ -30,7 +29,7 @@ html {
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: ProximaNova;
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
@@ -60,4 +59,52 @@ button[aria-expanded]:focus,
 button[role='tab']:focus,
 a[aria-label]:focus {
     outline: none;
+}
+
+// font emmbeded
+@font-face {
+    font-family: ProximaNova;
+    src: url(/assets/fonts/Proxima-Nova-Regular.woff2);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url(/assets/fonts/Proxima-Nova-Semibold.woff2);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url(/assets/fonts/Proxima-Nova-Bold.woff2);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url(/assets/fonts/sofiapro-bold.woff2);
+    font-weight: 700;
+}
+// tippy tooltip
+.tippy-box {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    background-color: rgba(84, 84, 84, 0.92);
+    color: rgb(255, 255, 255);
+    padding: 3px 0;
+    z-index: 999;
+}
+
+.tippy-arrow {
+    color: rgba(84, 84, 84, 0.92);
+}
+
+.tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
+    top: -8px;
+}
+
+[data-tippy-root] {
+    background-color: var(--white);
+    border-radius: 8px;
 }

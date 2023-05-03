@@ -15,82 +15,6 @@
     align-items: center;
 }
 
-.search,
-.search-result {
-    width: var(--search-width);
-}
-
-.search {
-    position: relative;
-    height: var(--search-height);
-    padding-left: 16px;
-    background-color: var(--search-color);
-    border-radius: var(--search-border-radius);
-    display: flex;
-    border: 1px solid transparent;
-
-    input {
-        flex: 1;
-        height: 100%;
-        background-color: transparent;
-        caret-color: var(--primary);
-    }
-
-    input:not(:placeholder-shown) ~ .search-btn {
-        background-color: rgba(22, 24, 35, 0.03);
-    }
-
-    &::after {
-        position: absolute;
-        top: 9px;
-        bottom: 9px;
-        right: 48px;
-        content: '';
-        width: 1px;
-        background-color: var(--search-border-color);
-    }
-}
-
-.search.border {
-    border: 1px solid var(--search-border-color);
-}
-
-.search-title {
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 22px;
-    color: rgba(22, 24, 35, 0.75);
-    padding: 5px 12px 0px;
-}
-
-.clear,
-.loading {
-    padding: 0px 12px;
-    .clear-icon {
-        color: #a7a7ab;
-    }
-}
-
-.search-btn {
-    background-color: transparent;
-    padding: 11px 12px;
-    border-top-right-radius: var(--search-border-radius);
-    border-bottom-right-radius: var(--search-border-radius);
-    .search-btn-icon {
-        font-size: 2.4rem;
-        color: var(--search-btn-color);
-    }
-
-    &:hover {
-        background-color: rgba(22, 24, 35, 0.03);
-        cursor: pointer;
-    }
-
-    &:active {
-        background-color: rgba(22, 24, 35, 0.06);
-    }
-}
-
 // Action
 .action {
     display: flex;
@@ -111,4 +35,32 @@
 .more-btn-icon {
     width: 20px;
     font-size: 2rem;
+}
+
+.action__btn-message,
+.action__btn-inbox {
+    margin-left: 16px;
+    color: var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.icon-message {
+    width: 26px;
+    height: 26px;
+}
+
+.icon-inbox {
+    width: 32px;
+    height: 32px;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    margin-left: 26px;
+    object-fit: cover;
+    border-radius: 50%;
 }

@@ -2,7 +2,13 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    background-color: transparent;
+    color: var(--text-color);
+
     border-radius: 4px;
+    font-family: ProximaNova;
+
+    outline: none;
     cursor: pointer;
     user-select: none;
 
@@ -19,12 +25,14 @@
 .icon {
     width: 24px;
     text-align: center;
+    line-height: 0;
+    color: var(--black);
 }
 
 // Btn style
 .rounded {
     color: rgba(22, 24, 35, 0.75);
-    font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+    font-family: ProximaNova;
     font-weight: 700;
     font-size: 14px;
     line-height: 30px;
@@ -77,7 +85,7 @@
     padding: 0 10px;
     font-size: 1.6rem;
     font-weight: 600;
-    font-family: ProximaNova, PingFangSC, sans-serif;
+    font-family: ProximaNova;
 }
 
 .medium {
@@ -87,7 +95,7 @@
     font-size: 1.6rem;
     font-weight: 700;
     line-height: 22px;
-    font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+    font-family: ProximaNova;
 }
 
 .large {
@@ -96,5 +104,5 @@
     font-size: 1.8rem;
     line-height: 25px;
     font-weight: 600;
-    font-family: SofiaPro, PingFangSC, sans-serif;
+    font-family: ProximaNova;
 }
