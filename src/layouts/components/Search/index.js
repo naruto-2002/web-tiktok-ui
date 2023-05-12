@@ -75,7 +75,7 @@ function Search() {
     };
 
     return (
-        // Uing a wrapper <div> tag around the reference element solves this by creating a new parentNode context. S
+        // Using a wrapper <div> tag around the reference element solves this by creating a new parentNode context. S
         <div>
             <HeadlessTippy
                 interactive
