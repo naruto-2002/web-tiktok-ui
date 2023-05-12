@@ -1,4 +1,4 @@
-function SearchIcon({ width = '2.4rem', height = '2.4rem', className }) {
+export function SearchIcon({ width = '2.4rem', height = '2.4rem', className }) {
     return (
         <svg
             className={className}
@@ -18,7 +18,7 @@ function SearchIcon({ width = '2.4rem', height = '2.4rem', className }) {
         </svg>
     );
 }
-function MessageIcon({ width = '1em', height = '1em', className }) {
+export function MessageIcon({ width = '1em', height = '1em', className }) {
     return (
         <svg
             className={className}
@@ -37,7 +37,7 @@ function MessageIcon({ width = '1em', height = '1em', className }) {
     );
 }
 
-function InboxIcon({ width = '3.2rem', height = '3.2rem', className }) {
+export function InboxIcon({ width = '3.2rem', height = '3.2rem', className }) {
     return (
         <svg className={className} width={width} height={height} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -49,7 +49,7 @@ function InboxIcon({ width = '3.2rem', height = '3.2rem', className }) {
     );
 }
 
-function UserIcon({ width = '2.0rem', height = '2.0rem', className }) {
+export function UserIcon({ width = '2.0rem', height = '2.0rem', className }) {
     return (
         <svg
             className={className}
@@ -69,7 +69,7 @@ function UserIcon({ width = '2.0rem', height = '2.0rem', className }) {
     );
 }
 
-function CoinIcon({ width = '2.0rem', height = '2.0rem', className }) {
+export function CoinIcon({ width = '2.0rem', height = '2.0rem', className }) {
     return (
         <svg
             className={className}
@@ -94,7 +94,7 @@ function CoinIcon({ width = '2.0rem', height = '2.0rem', className }) {
     );
 }
 
-function SettingIcon({ width = '2.0rem', height = '2.0rem', className }) {
+export function SettingIcon({ width = '2.0rem', height = '2.0rem', className }) {
     return (
         <svg
             className={className}
@@ -114,7 +114,7 @@ function SettingIcon({ width = '2.0rem', height = '2.0rem', className }) {
     );
 }
 
-function LanguageIcon({ width = '2.0rem', height = '2.0rem', className }) {
+export function LanguageIcon({ width = '2.0rem', height = '2.0rem', className }) {
     return (
         <svg
             className={className}
@@ -134,7 +134,7 @@ function LanguageIcon({ width = '2.0rem', height = '2.0rem', className }) {
     );
 }
 
-function QuestionIcon({ width = '2.0rem', height = '2.0rem', className }) {
+export function QuestionIcon({ width = '2.0rem', height = '2.0rem', className }) {
     return (
         <svg
             className={className}
@@ -154,7 +154,7 @@ function QuestionIcon({ width = '2.0rem', height = '2.0rem', className }) {
     );
 }
 
-function BoardIcon({ width = '2.0rem', height = '2.0rem', className }) {
+export function BoardIcon({ width = '2.0rem', height = '2.0rem', className }) {
     return (
         <svg
             className={className}
@@ -174,7 +174,7 @@ function BoardIcon({ width = '2.0rem', height = '2.0rem', className }) {
     );
 }
 
-function MoonIcon({ width = '2.0rem', height = '2.0rem', className }) {
+export function MoonIcon({ width = '2.0rem', height = '2.0rem', className }) {
     return (
         <svg
             className={className}
@@ -194,7 +194,7 @@ function MoonIcon({ width = '2.0rem', height = '2.0rem', className }) {
     );
 }
 
-function SingInIcon({ width = '2.0rem', height = '2.0rem', className }) {
+export function SingInIcon({ width = '2.0rem', height = '2.0rem', className }) {
     return (
         <svg
             className={className}
@@ -214,7 +214,7 @@ function SingInIcon({ width = '2.0rem', height = '2.0rem', className }) {
     );
 }
 
-function ClearIcon({ width = '1.6rem', height = '1.6rem', className }) {
+export function ClearIcon({ width = '1.6rem', height = '1.6rem', className }) {
     return (
         <svg
             className={className}
@@ -235,7 +235,7 @@ function ClearIcon({ width = '1.6rem', height = '1.6rem', className }) {
     );
 }
 
-function LoadingIcon({ width = '1.6rem', height = '1.6rem', className }) {
+export function LoadingIcon({ width = '1.6rem', height = '1.6rem', className }) {
     return (
         <svg
             className={className}
@@ -255,19 +255,3 @@ function LoadingIcon({ width = '1.6rem', height = '1.6rem', className }) {
         </svg>
     );
 }
-
-export {
-    MessageIcon,
-    InboxIcon,
-    UserIcon,
-    CoinIcon,
-    SettingIcon,
-    LanguageIcon,
-    QuestionIcon,
-    BoardIcon,
-    MoonIcon,
-    SingInIcon,
-    SearchIcon,
-    ClearIcon,
-    LoadingIcon,
-};
