@@ -38,6 +38,17 @@ function Menu({ children, items = [], onBack, hideOnClick = false, onChange = fn
         }, []);
     };
 
+    const handleBack = () => {
+        if (history.length > 1) {
+            setHistory((prev) => prev.splice(0, prev.length - 1));
+        }
+    };
+
+    // Reset to first page
+    const handleReset = () => {
+        setHistory((prev) => prev.splice(0, 1));
+    };
+
     return (
         <HeadlessTippy
             interactive
@@ -48,23 +59,12 @@ function Menu({ children, items = [], onBack, hideOnClick = false, onChange = fn
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
                     <PopperWrapper className={cx('menu-popper')}>
-                        {history.length > 1 && (
-                            <Header
-                                title={currentItem.title}
-                                onBack={() => {
-                                    if (history.length > 1) {
-                                        setHistory((prev) => prev.splice(0, prev.length - 1));
-                                    }
-                                }}
-                            />
-                        )}
+                        {history.length > 1 && <Header title={currentItem.title} onBack={handleBack} />}
                         <div className={cx('menu-body')}>{renderItems()}</div>
                     </PopperWrapper>
                 </div>
             )}
-            onHidden={() => {
-                setHistory((prev) => prev.splice(0, 1));
-            }}
+            onHidden={handleReset}
         >
             {children}
         </HeadlessTippy>

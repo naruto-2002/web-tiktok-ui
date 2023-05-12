@@ -86,15 +86,17 @@ const userMenu = [
 ];
 
 function Header() {
-    const currentUser = true;
+    const currentUser = false;
+
     let menu = MENU_ITEMS;
+
     if (currentUser) {
         menu = userMenu;
     }
 
-    const handleMenuChange = (menuItem) => {
+    function handleMenuChange(menuItem) {
         console.log(menuItem);
-    };
+    }
 
     return (
         <div className={cx('wrapper')}>
@@ -104,6 +106,7 @@ function Header() {
                 </Link>
 
                 <Search />
+
                 <div className={cx('action')}>
                     {currentUser ? (
                         <>
@@ -117,7 +120,6 @@ function Header() {
                             </Tippy>
                             <Tippy content="Inbox" placement="bottom">
                                 <button className={cx('action__btn-inbox')}>
-                                    {/* <img className={cx('icon-inbox')} src={images.inbox.default} alt="error" /> */}
                                     <InboxIcon className={cx('icon-inbox')} />
                                 </button>
                             </Tippy>
