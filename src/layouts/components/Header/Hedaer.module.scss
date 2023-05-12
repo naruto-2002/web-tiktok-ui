@@ -1,10 +1,15 @@
 .wrapper {
-    width: 100%;
-    height: var(--default-layout-header-height);
-    padding: 0 24px 0 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     justify-content: center;
+    width: 100%;
+    padding: 0 24px 0 16px;
+    height: var(--default-layout-header-height);
+    background-color: var(--white);
     border: 1px solid #ccc;
+    z-index: 10;
 }
 
 .inner {
@@ -13,6 +18,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.logo {
+    display: flex;
 }
 
 // Action

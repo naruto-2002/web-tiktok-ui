@@ -11,7 +11,7 @@ const cx = classNames.bind(styles);
 
 const fncDefault = () => {};
 
-function Menu({ children, items = [], onBack, onChange = fncDefault }) {
+function Menu({ children, items = [], onBack, hideOnClick = false, onChange = fncDefault }) {
     const [history, setHistory] = useState([{ data: items }]);
     const currentItem = history[history.length - 1];
 
@@ -40,9 +40,9 @@ function Menu({ children, items = [], onBack, onChange = fncDefault }) {
     return (
         <HeadlessTippy
             interactive
-            // visible
             offset={[10, 10]}
             delay={[0, 700]}
+            hideOnClick={hideOnClick}
             placement="bottom-end"
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
@@ -52,14 +52,12 @@ function Menu({ children, items = [], onBack, onChange = fncDefault }) {
                                 title={'Language'}
                                 onBack={() => {
                                     if (history.length > 1) {
-                                        setHistory((prev) =>
-                                            prev.splice(0, prev.length - 1),
-                                        );
+                                        setHistory((prev) => prev.splice(0, prev.length - 1));
                                     }
                                 }}
                             />
                         )}
-                        {renderItems()}
+                        <div className={cx('menu-body')}>{renderItems()}</div>
                     </PopperWrapper>
                 </div>
             )}

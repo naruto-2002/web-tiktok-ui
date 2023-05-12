@@ -6,8 +6,9 @@
 }
 
 .container {
-    width: var(--default-layout-width);
     display: flex;
+    width: var(--default-layout-width);
+    margin-top: var(--default-layout-header-height);
 }
 
 .content {

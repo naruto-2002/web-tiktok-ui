@@ -1,6 +1,7 @@
 .search,
 .search-result {
     width: var(--search-width);
+    background-color: var(--white);
 }
 
 .search {
@@ -17,6 +18,8 @@
         height: 100%;
         background-color: transparent;
         caret-color: var(--primary);
+        font-family: var(--font-family);
+        padding-right: 44px;
     }
 
     input:not(:placeholder-shown) ~ .search-btn {
