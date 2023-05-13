@@ -3,11 +3,9 @@
     padding-right: 8px;
 }
 
-.side-bar {
+.inner-sidebar {
+    display: flex;
+    flex-direction: column;
     padding: 20px 0 26px 8px;
     min-height: 1000px;
-}
-
-.page-item {
-    padding: 8px;
 }

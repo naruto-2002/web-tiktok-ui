@@ -86,7 +86,7 @@ const userMenu = [
 ];
 
 function Header() {
-    const currentUser = false;
+    const currentUser = true;
 
     let menu = MENU_ITEMS;
 
