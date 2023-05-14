@@ -1,11 +1,10 @@
 import { httpRequest } from '~/utils';
 
-export const search = async (q, type = 'less') => {
+export const getSuggestedAccount = async ({ pre_page }) => {
     try {
-        const response = await httpRequest.get('users/search', {
+        const response = await httpRequest.get('users/suggested', {
             params: {
-                q,
-                type,
+                pre_page,
             },
         });
         return response.data;

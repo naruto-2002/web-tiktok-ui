@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import { useState, useRef, useEffect } from 'react';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
-import AccountItem from '~/components/AccountItem';
+import AccountItem from '~/components/Items/AccountItem';
 import styles from './Search.module.scss';
 import { ClearIcon, LoadingIcon, SearchIcon } from '~/components/Icons';
 import { useDebounce } from '~/hooks';

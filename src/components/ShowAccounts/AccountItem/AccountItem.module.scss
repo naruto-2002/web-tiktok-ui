@@ -1,5 +1,5 @@
 .wrapper {
-    padding: 9px 16px;
+    padding: 6px 10px;
     display: flex;
     align-items: center;
     line-height: 1.8rem;
@@ -9,21 +9,19 @@
 }
 
 .avatar {
-    width: 40px;
-    height: 40px;
-    margin-right: 6px;
+    width: 34px;
+    height: 34px;
+    margin-right: 12px;
     border-radius: 50%;
     object-fit: cover;
-}
-
-.info {
 }
 
 .name {
     display: flex;
     align-items: center;
     h4 {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
+        font-weight: 700;
     }
 }
 
@@ -36,4 +34,6 @@
 .username {
     font-size: 1.2rem;
     color: rgba(22, 24, 35, 0.75);
+    opacity: 0.8;
+    font-weight: 400;
 }
