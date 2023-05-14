@@ -26,15 +26,17 @@ const CLIENT_MENU = [
         title: 'English',
         icon: <LanguageIcon />,
         children: {
-            title: 'Languge',
+            title: 'Language',
             data: [
                 {
                     code: 'eng',
                     title: 'English',
+                    active: true,
                 },
                 {
                     code: 'vie',
                     title: 'Tiếng Việt',
+                    active: false,
                 },
             ],
         },

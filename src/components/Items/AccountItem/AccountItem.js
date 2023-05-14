@@ -9,9 +9,14 @@ import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function AccountItem({ data }) {
+function AccountItem({ searchAccount, suggestedAccount, data }) {
+    const classes = cx('wrapper', {
+        searchAccount,
+        suggestedAccount,
+    });
+
     return (
-        <Link to={`/profile/${data.nickname}`} className={cx('wrapper')}>
+        <Link to={`/profile/${data.nickname}`} className={classes}>
             <Image
                 className={cx('avatar')}
                 src={data.avatar}
@@ -23,7 +28,7 @@ function AccountItem({ data }) {
                     <h4>{data.nickname}</h4>
                     {data.tick && <FontAwesomeIcon className={cx('check-icon')} icon={faCheckCircle} />}
                 </div>
-                <span className={cx('username')}>{data.full_name}</span>
+                <span className={cx('username')}>{data.full_name || `${data.first_name} ${data.last_name}`}</span>
             </div>
         </Link>
     );
