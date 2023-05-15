@@ -20,6 +20,7 @@
 .discover-item {
     display: inline-flex;
     justify-content: flex-start;
+    max-width: 100%;
     min-height: 0;
     margin-left: 0 !important;
     font-size: 1.4rem;
@@ -28,8 +29,5 @@
     padding: 3px 10px;
     margin-right: 8px;
     margin-bottom: 12px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     transition: background-color 200ms ease-in-out 0s;
 }

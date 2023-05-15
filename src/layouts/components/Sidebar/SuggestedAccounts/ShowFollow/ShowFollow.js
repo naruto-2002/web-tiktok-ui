@@ -43,7 +43,15 @@ function ShowFollow({ children, data }) {
     };
 
     return (
-        <Tippy interactive offset={[5, -2]} placement="bottom" delay={[1200, 500]} render={handleRender}>
+        <Tippy
+            interactive
+            offset={[5, -2]}
+            appendTo={document.body}
+            zIndex={999}
+            placement="bottom"
+            delay={[1200, 500]}
+            render={handleRender}
+        >
             <div>{children}</div>
         </Tippy>
     );

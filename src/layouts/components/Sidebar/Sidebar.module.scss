@@ -1,11 +1,28 @@
 .wrapper {
+    height: var(100vh - var(--default-layout-header-height));
     width: var(--default-layout-sidebar-width);
     padding-right: 8px;
+    border-right: 8px transparent;
+    overflow: overlay;
+
+    &::-webkit-scrollbar {
+        border-radius: 0;
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+    }
+
+    &:hover {
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(22, 24, 35, 0.06);
+        }
+    }
 }
 
 .inner-sidebar {
     display: flex;
     flex-direction: column;
     padding: 20px 0 26px 8px;
-    min-height: 1000px;
 }

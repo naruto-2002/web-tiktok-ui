@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 import routesConfig from '~/config/routes';
+import { useEffect } from 'react';
 
 import styles from './Sidebar.module.scss';
 import Navigation, { NavigationItem } from './Navigation';
@@ -21,6 +22,9 @@ import { Footer } from './Footer';
 const cx = classNames.bind(styles);
 
 function Sidebar() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <div className={cx('wrapper')}>
             <div className={cx('inner-sidebar')}>

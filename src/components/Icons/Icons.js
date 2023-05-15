@@ -432,7 +432,7 @@ export function LiveActiveIcon({ width = '3.2rem', height = '3.2rem', className 
 export function TagIcon({ width = '1.6rem', height = '1.6rem', className }) {
     return (
         <svg
-            class={className}
+            className={className}
             width={width}
             data-e2e=""
             height={height}
@@ -452,7 +452,7 @@ export function TagIcon({ width = '1.6rem', height = '1.6rem', className }) {
 export function MusicIcon({ width = '1.6rem', height = '1.6rem', className }) {
     return (
         <svg
-            class={className}
+            className={className}
             width={width}
             data-e2e=""
             height={height}

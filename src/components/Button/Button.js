@@ -17,6 +17,7 @@ function Button({
     small = false,
     medium = false,
     large = false,
+    discover = false,
     children,
     leftIcon,
     rightIcon,
@@ -58,6 +59,7 @@ function Button({
         small,
         medium,
         large,
+        discover,
     });
 
     return (

@@ -64,6 +64,7 @@ function Discover() {
                             text
                             medium
                             rounded
+                            discover
                             leftIcon={disItem.type === 'hashtag' ? <TagIcon /> : <MusicIcon />}
                         >
                             {disItem.title}

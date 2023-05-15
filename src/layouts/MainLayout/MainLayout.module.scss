@@ -8,9 +8,11 @@
 .container {
     display: flex;
     width: var(--default-layout-width);
+    height: calc(100vh - var(--default-layout-header-height));
     margin-top: var(--default-layout-header-height);
 }
 
 .content {
     flex: 1;
+    overflow: overlay;
 }
