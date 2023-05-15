@@ -1,10 +1,10 @@
 import { httpRequest } from '~/utils';
 
-export const getSuggestedAccount = async ({ pre_page }) => {
+export const getSuggestedAccount = async (per_page) => {
     try {
         const response = await httpRequest.get('users/suggested', {
             params: {
-                pre_page,
+                per_page,
             },
         });
         return response.data;

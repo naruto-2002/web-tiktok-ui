@@ -15,6 +15,8 @@ import {
 } from '~/components/Icons';
 import Login from './LoginNotify';
 import SuggestedAccounts from './SuggestedAccounts';
+import Discover from './Discover/Discover';
+import { Footer } from './Footer';
 
 const cx = classNames.bind(styles);
 
@@ -50,6 +52,8 @@ function Sidebar() {
                 </Navigation>
                 <Login />
                 <SuggestedAccounts />
+                <Discover />
+                <Footer />
             </div>
         </div>
     );

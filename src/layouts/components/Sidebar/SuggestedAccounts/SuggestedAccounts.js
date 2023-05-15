@@ -12,16 +12,30 @@ const cx = classNames.bind(styles);
 
 function SuggestedAccounts() {
     const [accounts, setAccounts] = useState([]);
+    const [seeAll, setSeeAll] = useState(false);
+    const [accountCount, setAccountCount] = useState(accountsConfig.minShowSuggested);
+
     useEffect(() => {
         const fetchApi = async () => {
-            const result = await getSuggestedAccount(accountsConfig.defaultShowSuggested);
+            const result = await getSuggestedAccount(accountCount);
             setAccounts(result);
         };
         fetchApi();
-    }, []);
+    }, [accountCount]);
+
+    const handleSeeAll = () => {
+        setSeeAll(!seeAll);
+        setAccountCount(accountsConfig.maxShowSuggested);
+    };
+
+    const handleSeeLess = () => {
+        setSeeAll(!seeAll);
+        setAccountCount(accountsConfig.minShowSuggested);
+    };
+
     return (
         <BorderTop className={cx('wrapper')}>
-            <span className={cx('title')}> Suggested accounts</span>
+            <h3 className={cx('title')}>Suggested accounts</h3>
             {accounts.map((account) => {
                 return (
                     <div className={cx('body')} key={account.id}>
@@ -31,6 +45,17 @@ function SuggestedAccounts() {
                     </div>
                 );
             }, [])}
+            <div className={cx('see-btn')}>
+                {seeAll ? (
+                    <span className={cx('see-less')} onClick={handleSeeLess}>
+                        see less
+                    </span>
+                ) : (
+                    <span className={cx('see-all')} onClick={handleSeeAll}>
+                        see all
+                    </span>
+                )}
+            </div>
         </BorderTop>
     );
 }
