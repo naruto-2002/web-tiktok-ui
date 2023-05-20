@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -56,5 +57,10 @@ function ShowFollow({ children, data }) {
         </Tippy>
     );
 }
+
+ShowFollow.propTypes = {
+    children: PropTypes.node.isRequired,
+    data: PropTypes.object.isRequired,
+};
 
 export default ShowFollow;

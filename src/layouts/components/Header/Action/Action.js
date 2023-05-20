@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical, faPlus } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
 
 import styles from './Action.module.scss';
 import Button from '~/components/Button';
@@ -67,5 +68,10 @@ function Action({ clientMenu, userMenu }) {
         </div>
     );
 }
+
+Action.propTypes = {
+    clientMenu: PropTypes.array.isRequired,
+    userMenu: PropTypes.array.isRequired,
+};
 
 export default Action;

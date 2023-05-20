@@ -1,0 +1,102 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.container {
+    width: 624px;
+    margin-left: 12px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-info {
+}
+
+.nickname {
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-right: 4px;
+}
+
+.name {
+    font-size: 1.4rem;
+}
+
+.follow-btn {
+    width: 88px;
+    height: 22px;
+}
+
+.description {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+}
+
+.hastag {
+}
+
+.music-info {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+    margin-bottom: 12px;
+    color: var(--black);
+    font-weight: 600;
+}
+
+.music-icon {
+    margin-right: 4px;
+}
+
+.body {
+    display: flex;
+}
+
+.interactive-space {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.interactive-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.interactive-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    margin-top: 8px;
+    margin-bottom: 6px;
+    border-radius: 50%;
+    background-color: rgba(22, 24, 35, 0.06);
+}
+
+.icon {
+    object-fit: cover;
+    color: rgb(22, 24, 35);
+}
+
+.icon-count {
+    color: rgba(22, 24, 35, 0.75);
+    font-size: 1.2rem;
+    line-height: 1.7rem;
+    text-align: center;
+}

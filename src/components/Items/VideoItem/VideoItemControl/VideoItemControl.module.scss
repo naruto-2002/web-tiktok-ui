@@ -1,0 +1,113 @@
+.wrapper {
+    position: relative;
+    &:hover {
+        .play-toggle {
+            display: flex;
+        }
+        .sound-icon {
+            display: flex;
+        }
+    }
+}
+
+.video {
+    height: 600px;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+
+.play-toggle {
+    position: absolute;
+    left: 12px;
+    bottom: 36px;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.volume {
+    position: absolute;
+    bottom: 36px;
+    right: 22px;
+    width: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: transparent;
+
+    &:hover {
+        .volume-control-space {
+            display: flex;
+        }
+    }
+}
+
+.volume-control-space {
+    position: relative;
+    margin-bottom: 22px;
+    margin-right: 4px;
+    width: 64px;
+    height: 24px;
+    transform: rotate(-90deg);
+    background: rgba(22, 24, 35, 0.34);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    .slider {
+        position: absolute;
+        height: 2px;
+        left: 14px;
+        background-color: #fff;
+        z-index: 1;
+    }
+
+    input {
+        position: absolute;
+        width: 64px;
+    }
+
+    input[type='range'] {
+        appearance: none;
+        width: 36px;
+        height: 2px;
+        background-color: rgba(255, 255, 255, 0.34);
+    }
+
+    input[id='control-volume']::-webkit-slider-thumb {
+        appearance: none;
+        width: 12px;
+        height: 12px;
+        background: #fff;
+        border-radius: 12px;
+    }
+}
+
+.volume-toggle {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+
+    & .mute-icon {
+        display: flex;
+    }
+
+    & .sound-icon {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1919px) {
+    .video {
+        height: calc(450px + ((100vw - 768px) / 1152) * 200);
+    }
+}
