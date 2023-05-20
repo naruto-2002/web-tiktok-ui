@@ -38,7 +38,7 @@ function VideoItemControl() {
     //Xử lý đk tắt bật âm thanh
     const handleVolume = () => {
         setIsSounding(!isSounding);
-        // Xủ lý đua về mặc định khi bật âm thanh
+        // Xủ lý đưa về mặc định khi bật/tắt âm thanh
         if (!isSounding && inputValue < 3) {
             defaultOnState();
         } else if (isSounding && inputValue >= 3) {
