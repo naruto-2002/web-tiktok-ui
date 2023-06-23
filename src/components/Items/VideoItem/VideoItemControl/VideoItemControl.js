@@ -1,13 +1,14 @@
 import classNames from 'classnames/bind';
 import { useEffect, useRef, useState } from 'react';
+import { InView } from 'react-intersection-observer';
 
 import styles from './VideoItemControl.module.scss';
 import { MuteIcon, PauseIcon, SoundIcon, UnpauseIcon } from '~/components/Icons';
 
 const cx = classNames.bind(styles);
 
-function VideoItemControl() {
-    const [isPlaying, setIsPlaying] = useState(true);
+function VideoItemControl({ videoPath }) {
+    const [isPlaying, setIsPlaying] = useState(false);
     const [isSounding, setIsSounding] = useState(false);
     const [inputValue, setInputValue] = useState(0);
     const videoRef = useRef();
@@ -29,6 +30,11 @@ function VideoItemControl() {
     useEffect(() => {
         isSounding ? (videoRef.current.volume = inputValue / 100) : (videoRef.current.volume = 0);
     }, [isSounding]);
+
+    const handleInView = (inView) => {
+        setIsPlaying(inView);
+        videoRef.current.currentTime = 0;
+    };
 
     //Xử lý đk tắt bât video
     const handlePlay = () => {
@@ -70,9 +76,11 @@ function VideoItemControl() {
 
     return (
         <div className={cx('wrapper')}>
-            <video className={cx('video')} autoPlay audio="true" loop ref={videoRef}>
-                <source src="https://files.fullstack.edu.vn/f8-tiktok/videos/2200-64625410ac0cb.mp4" />
-            </video>
+            <InView onChange={handleInView} threshold={0.8}>
+                <video className={cx('video')} autoPlay audio="true" loop ref={videoRef}>
+                    <source src={videoPath} />
+                </video>
+            </InView>
             <button className={cx('play-toggle')} onMouseDown={handlePlay}>
                 {isPlaying ? <UnpauseIcon /> : <PauseIcon />}
             </button>

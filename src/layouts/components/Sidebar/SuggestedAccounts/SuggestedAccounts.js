@@ -36,15 +36,17 @@ function SuggestedAccounts() {
     return (
         <BorderTop className={cx('wrapper')}>
             <h3 className={cx('title')}>Suggested accounts</h3>
-            {accounts.map((account) => {
-                return (
-                    <div className={cx('body')} key={account.id}>
-                        <ShowFollow data={account} key={account.id}>
-                            <AccountItem suggestedAccount data={account} />
-                        </ShowFollow>
-                    </div>
-                );
-            }, [])}
+            {accounts && Array.isArray(accounts)
+                ? accounts.map((account) => {
+                      return (
+                          <div className={cx('body')} key={account.id}>
+                              <ShowFollow data={account} key={account.id}>
+                                  <AccountItem suggestedAccount data={account} />
+                              </ShowFollow>
+                          </div>
+                      );
+                  }, [])
+                : ''}
             <div className={cx('see-btn')}>
                 {seeAll ? (
                     <span className={cx('see-less')} onClick={handleSeeLess}>

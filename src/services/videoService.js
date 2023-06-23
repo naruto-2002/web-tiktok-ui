@@ -1,11 +1,11 @@
 import { httpRequest } from '~/utils';
 
-export const getSuggestedAccount = async (per_page, page = 1) => {
+export const getVideo = async (page, type = 'for-you') => {
     try {
-        const response = await httpRequest.get('users/suggested', {
+        const response = await httpRequest.get('videos', {
             params: {
-                per_page,
                 page,
+                type,
             },
         });
         return response.data;
