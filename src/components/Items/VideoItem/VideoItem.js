@@ -5,13 +5,13 @@ import Image from '~/components/Image/Image';
 import Button from '~/components/Button/Button';
 import { VideoItemControl } from './VideoItemControl';
 import { CommentIcon, HeartIcon, MusicIcon, ShareIcon } from '~/components/Icons';
+import BorderBottom from '~/components/BorderBottom';
 
 const cx = classNames.bind(styles);
 
 function VideoItem({ videoInf }) {
-    console.log(videoInf);
     return (
-        <div className={cx('wrapper')}>
+        <BorderBottom className={cx('wrapper')}>
             <Image className={cx('avatar')} src={videoInf.user.avatar} />
 
             <div className={cx('container')}>
@@ -19,7 +19,7 @@ function VideoItem({ videoInf }) {
                     <div className={cx('user-info')}>
                         <span className={cx('nickname')}>{videoInf.user.nickname}</span>
                         <span className={cx('name')}>
-                            `${videoInf.user.first_name} ${videoInf.user.last_name}`
+                            {videoInf.user.first_name} {videoInf.user.last_name}
                         </span>
                     </div>
                     <Button className={cx('follow-btn')} outline small>
@@ -60,7 +60,7 @@ function VideoItem({ videoInf }) {
                     </div>
                 </div>
             </div>
-        </div>
+        </BorderBottom>
     );
 }
 

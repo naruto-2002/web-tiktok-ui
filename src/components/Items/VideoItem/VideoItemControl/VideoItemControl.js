@@ -5,11 +5,16 @@ import { InView } from 'react-intersection-observer';
 import styles from './VideoItemControl.module.scss';
 import { MuteIcon, PauseIcon, SoundIcon, UnpauseIcon } from '~/components/Icons';
 
+const global = {
+    isSounding: false,
+    inputValue: 50,
+};
+
 const cx = classNames.bind(styles);
 
 function VideoItemControl({ videoPath }) {
     const [isPlaying, setIsPlaying] = useState(false);
-    const [isSounding, setIsSounding] = useState(false);
+    const [isSounding, setIsSounding] = useState(global.isSounding);
     const [inputValue, setInputValue] = useState(0);
     const videoRef = useRef();
     const sliderRef = useRef();
@@ -24,16 +29,25 @@ function VideoItemControl({ videoPath }) {
 
     //Xử lý khi biến phụ thuộc thay đổi sau khi component đc mount
     useEffect(() => {
-        isPlaying ? videoRef.current.play() : videoRef.current.pause();
+        videoRef.current.addEventListener('canplaythrough', () => {
+            isPlaying ? videoRef.current.play() : videoRef.current.pause();
+        });
     }, [isPlaying]);
-
     useEffect(() => {
+        global.isSounding = isSounding;
         isSounding ? (videoRef.current.volume = inputValue / 100) : (videoRef.current.volume = 0);
     }, [isSounding]);
 
+    // Reset lại video khi lướt trúng
     const handleInView = (inView) => {
         setIsPlaying(inView);
         videoRef.current.currentTime = 0;
+        setIsSounding(global.isSounding);
+        if (global.isSounding) {
+            defaultOnState(global.inputValue);
+        } else {
+            defaultOffState();
+        }
     };
 
     //Xử lý đk tắt bât video
@@ -46,7 +60,7 @@ function VideoItemControl({ videoPath }) {
         setIsSounding(!isSounding);
         // Xủ lý đưa về mặc định khi bật/tắt âm thanh
         if (!isSounding && inputValue < 3) {
-            defaultOnState();
+            defaultOnState(global.inputValue);
         } else if (isSounding && inputValue >= 3) {
             defaultOffState();
         }
@@ -56,15 +70,16 @@ function VideoItemControl({ videoPath }) {
     const handleVolumeChange = () => {
         setInputValue(inputRef.current.value);
         inputRef.current.value < 3 ? setIsSounding(false) : setIsSounding(true);
-        sliderRef.current.style.width = Math.floor((inputValue * 48) / 100) - 12 + 'px';
+        sliderRef.current.style.width = Math.floor((inputValue * 36) / 100) + 'px';
         videoRef.current.volume = inputValue / 100;
+        global.inputValue = inputValue;
     };
 
-    const defaultOnState = () => {
-        setInputValue(50);
-        videoRef.current.volume = 0.5;
-        sliderRef.current.style.width = 18 + 'px';
-        inputRef.value = 50;
+    const defaultOnState = (x = 50) => {
+        setInputValue(x);
+        videoRef.current.volume = x / 100;
+        sliderRef.current.style.width = Math.floor((x * 36) / 100) + 'px';
+        inputRef.value = x;
     };
 
     const defaultOffState = () => {

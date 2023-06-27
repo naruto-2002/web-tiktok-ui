@@ -11,7 +11,8 @@
 }
 
 .video {
-    height: 600px;
+    max-height: 540px;
+    max-width: 490px;
     margin-right: 20px;
     border-radius: 8px;
 }
@@ -61,8 +62,9 @@
     border-radius: 16px;
     .slider {
         position: absolute;
-        height: 2px;
-        left: 14px;
+        height: 3px;
+        left: 13px;
+        top: 10px;
         background-color: #fff;
         z-index: 1;
     }
@@ -75,7 +77,8 @@
     input[type='range'] {
         appearance: none;
         width: 36px;
-        height: 2px;
+        height: 3px;
+        margin-top: -1px;
         background-color: rgba(255, 255, 255, 0.34);
     }
 
@@ -108,6 +111,6 @@
 
 @media screen and (max-width: 1919px) {
     .video {
-        height: calc(450px + ((100vw - 768px) / 1152) * 200);
+        max-height: calc(450px + ((100vw - 768px) / 1152) * 200);
     }
 }

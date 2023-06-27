@@ -1,0 +1,29 @@
+.wrapper {
+    max-width: 630px;
+    position: relative;
+}
+#loader {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    margin: 6px 0;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .loader-icon {
+        font-size: 3rem;
+        animation: spinner 1s linear infinite;
+        background-image: linear-gradient(90deg, #fe2c55, #3af2ff);
+        border-radius: 50%;
+    }
+
+    @keyframes spinner {
+        from {
+            transform: rotate(0);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}
